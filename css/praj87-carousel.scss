@@ -1,0 +1,26 @@
+.praj87-carousel {
+    box-sizing: border-box;
+    .praj87-viewport {
+        overflow: hidden;
+
+        .praj87-image-list {
+            display: flex;
+            transition: none;
+        }
+    }
+
+    .praj87-button-container {
+        display: flex;
+        justify-content: center;
+        padding: 8px;
+
+        .praj87-button {
+            padding: 8px;
+            width: 72px;
+
+            &:first-child {
+                margin-right: 8px;
+            }
+        }
+    }
+}

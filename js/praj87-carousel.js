@@ -1,6 +1,10 @@
 const PRAJ87Carousel = config => {
-    const carouselDiv = document.querySelector('.praj87-carousel');
-    const imageArr = config.imageArr ?? [];
+    const carouselDivId = config.carouselDivId;
+    if (!carouselDivId) throw new Error('DIV id is required');
+    const imageArr = config.imageArr;
+    if (!imageArr) throw new Error('Missing list of images');
+
+    const carouselDiv = document.querySelector(`#${carouselDivId}`);
     const carouselWidth = config.carouselWidth ?? 400;
     const isAutoPlay = config.isAutoPlay ?? false;
     const autoPlayDuration = config.autoPlayDuration ?? 3000;

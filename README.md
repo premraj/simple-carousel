@@ -21,18 +21,19 @@ Since this is a pure HTML, JS and CSS library, it is really easy to implement.
 3. Add the following DIV to your HTML file.
 
 ```html
-<div class="praj87-carousel"></div>
+<div class="praj87-carousel" id="<unique id for this div>"></div>
 ```
 
 4. Initialise the carousel in your main JS file and it will work out of the box!
 
 ```javascript
 const carousel = PRAJ87Carousel({
+    carouselDivId: 'carousel div to target',
     imageArr: ['list of image url goes here'],
 });
 ```
 
-You can refer to the `index.html` file in the example folder.
+You can refer to the `index.html` file in the `Example` folder.
 
 ## Configuration
 
@@ -40,6 +41,7 @@ Below are the configuration parameters used to setup the carousel
 
 | Parameter          | Is Required | Default Value | Description                                                                                                                                                                                                                                                                   |
 | ------------------ | ----------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| carouselDivId      | Yes         | Empty string  | ID of the carousel div used in the DOM. This allows us to have multiple carousels on the same page                                                                                                                                                                            |
 | imageArr           | Yes         | Empty array   | List of images (URL) to be shown in the carousel.                                                                                                                                                                                                                             |
 | carouselWidth      | No          | 400           | Width of the carousel viewport and images Note: value is in `px`                                                                                                                                                                                                              |
 | transitionSpeed    | No          | 200           | Speed of the carousel as it transitions from one image to another. Note: value is in miliseconds.                                                                                                                                                                             |

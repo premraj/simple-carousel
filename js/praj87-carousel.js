@@ -6,6 +6,7 @@ const PRAJ87Carousel = config => {
 
     const carouselDiv = document.querySelector(`#${carouselDivId}`);
     const carouselWidth = config.carouselWidth ?? 400;
+    const carouselAspectRatio = 267 / 400;
     const isAutoPlay = config.isAutoPlay ?? false;
     const autoPlayDuration = config.autoPlayDuration ?? 3000;
     const isLooped = isAutoPlay ? true : config.isLooped ?? true;
@@ -57,8 +58,14 @@ const PRAJ87Carousel = config => {
         return cpyImageArr.map(image => {
             const imgElem = createElement('img', 'praj87-image');
             imgElem.src = image;
-            imgElem.style.width = `${carouselWidth}px`;
-            return imgElem;
+            const imgContDiv = createElement('div', 'praj87-image-cont', [
+                imgElem,
+            ]);
+            imgContDiv.style.minWidth = `${carouselWidth}px`;
+            imgContDiv.style.height = `${
+                carouselAspectRatio * carouselWidth
+            }px`;
+            return imgContDiv;
         });
     };
 
@@ -159,7 +166,7 @@ const PRAJ87Carousel = config => {
     });
 
     // Start autoplay if it's set
-    const intervalId = null;
+    let intervalId = null;
     if (isAutoPlay) {
         intervalId = setInterval(handleNextClick, autoPlayDuration);
     }
